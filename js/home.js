@@ -1,0 +1,33 @@
+const validPin = 1234;
+
+// Add money feature
+
+document.getElementById("add-money-btn")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    const accountNumber = document.getElementById("account-number").value;
+
+    const amount = parseInt(document.getElementById("add-amount").value);
+
+    const pinNumber = parseInt(document.getElementById("add-pin").value);
+
+    const availableBalance = parseInt(document.getElementById("available-balance").innerText);
+
+    if (accountNumber.length < 11) {
+      alert("Invalid account Number");
+      return;
+    }
+
+    if (pinNumber !== validPin) {
+      alert("Invalid pin Number");
+      return;
+    }
+
+    const totalNewAvailableBalance = amount + availableBalance;
+    document.getElementById("available-balance").innerText = totalNewAvailableBalance;
+
+    document.getElementById("account-number").value = "";
+    document.getElementById("add-amount").value = "";
+    document.getElementById("add-pin").value = "";
+  });
+
