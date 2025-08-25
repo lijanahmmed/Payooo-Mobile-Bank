@@ -31,24 +31,6 @@ document.getElementById("add-money-btn")
     document.getElementById("add-pin").value = "";
   });
 
-//cashout money feature
-
-document.getElementById("withdraw-btn").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const amount = parseInt(document.getElementById("withdraw-amount").value);
-
-  const availableBalance = parseInt(
-    document.getElementById("available-balance").innerText
-  );
-
-  const totalNewAvailableBalance = availableBalance - amount;
-
-  console.log(totalNewAvailableBalance);
-
-  document.getElementById("available-balance").innerText =
-    totalNewAvailableBalance;
-});
 
 // toggling feature
 
