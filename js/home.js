@@ -31,8 +31,40 @@ document.getElementById("add-money-btn")
     document.getElementById("add-pin").value = "";
   });
 
+// Cash-out money feature
 
-// toggling feature
+document.getElementById("withdraw-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const agentNumber = document.getElementById("agent-number").value;
+  console.log(agentNumber)
+
+  const amount = parseInt(document.getElementById("withdraw-amount").value);
+  
+  const pinNumber = parseInt(document.getElementById('cash-out-pin').value);
+
+  const availableBalance = parseInt(document.getElementById("available-balance").innerText);
+
+  if (agentNumber.length < 11) {
+      alert("Invalid account Number");
+      return;
+    }
+
+    if (pinNumber !== validPin) {
+      alert("Invalid pin Number");
+      return;
+    }
+
+  const totalNewAvailableBalance = availableBalance - amount;
+
+  document.getElementById("available-balance").innerText = totalNewAvailableBalance;
+
+  document.getElementById("agent-number").value = "";
+  document.getElementById("withdraw-amount").value = "";
+  document.getElementById('cash-out-pin').value = "";
+});
+
+// Toggling feature
 
 document.getElementById("add-button").addEventListener("click", function (e) {
   document.getElementById("cash-out-parent").style.display = "none";
